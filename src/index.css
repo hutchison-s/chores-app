@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+  background-color: #F0EEFC;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  gap: 40px;
+}
+.userControls {
+  flex: 1;
+  height: calc(100vh - 15px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #424874;
+  border-radius: 0.5em;
+}
+.userControls label * {
+  width: 100%;
+  border-radius: 0.5em;
+  padding: 8px 5px;
+  font-size: large;
+  color: #424874;
+  text-align: center;
+  margin-top: 5px;
+  background: rgba(240, 238, 252, 0.9);
+  border: none;
+  box-shadow: 0 0 10px #242847bb;
+}
+.userControls > * {
+  font-size: 1.4rem;
+  color: #F0EEFC;
+  text-shadow: 0 0 20px #242847bb;
+}
+.userControls button {
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 1rem;
+  border: none;
+  outline: none; 
+  background-color: rgb(0, 196, 154);
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  box-shadow: 0 0 10px #242847bb;
+}
+.userControls button:active {
+  opacity: 0.8;
+}
+.restoreBox button {
+  display: inline-block;
+  width: 40%;
+  margin: 10px;
+}
+.itemsContainer {
+  flex: 2;
+  padding: 50px 10px 10px;
+  height: calc(100vh - 40px);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  position: relative;
+  background-color: #fff;
+  border: 2px dotted #A6B1E1;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  gap: 20px;
+  text-align: left;
+  margin-bottom: 10px;
+  order: 2;
+  opacity: 1;
+  transition: all 0.3s;
+  animation: grow 0.2s cubic-bezier(.53,-0.01,.62,1.15) both;
+}
+.item.priority {
+  order: 1;
+  color: rgb(182, 25, 182);
+  /* animation: glow 1.5s infinite alternate; */
+}
+.item:has(.complete) {
+  opacity: 0.5;
+  text-decoration: line-through;
+  order: 3;
+  transition: opacity 0.3s;
+}
+.item.deleted {
+  animation: shrink 0.2s cubic-bezier(.53,-0.01,.62,1.15) both;
+}
+.checkbox {
+  transform: scale(2);
+  accent-color: rgb(0, 196, 154);
+}
+.priorityBox {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  accent-color: #F8E16C;
+}
+#title {
+  font-size: 4em;
+  margin: 0;
+  text-shadow: 0 0 20px #242847bb;
+}
+#searchBar {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  width: 30%;
+  min-width: 150px;
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 2em;
+  font-size: large;
+  background: #42487449;
+}
+#searchBar:focus {
+  background-color: #ffffff;
+  outline: none;
+}
+#searchBar:focus::placeholder {
+  color:rgba(0, 0, 0, 0.2);
+}
+#searchBar::placeholder {
+  color:rgba(240, 238, 252, 0.9);
+}
+@keyframes grow {
+  from {transform: scale(0)}
+  to {transform: scale(1);}
+}
+@keyframes shrink {
+  from {transform: scale(1)}
+  to {transform: scale(0);}
+}
+@keyframes glow {
+  from {box-shadow: none;}
+  from {box-shadow: 0 0 15px #F8E16C;}
+}
