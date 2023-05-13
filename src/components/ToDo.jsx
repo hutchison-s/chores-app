@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { ListContext } from "../ListContext";
 import setStorage from "../functions/localStorage";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 export default function ToDo({item, idx}) {
     const { list, setList, deleted, setDeleted } = useContext(ListContext);
@@ -52,6 +54,7 @@ export default function ToDo({item, idx}) {
             checked={priority} 
             onChange={()=>{handlePriorityChange()}}
         /></small></label>
+        <FontAwesomeIcon icon={faTrash} className='deleteIcon' onClick={handleDoubleClick}/>
       </div>
     )
 }

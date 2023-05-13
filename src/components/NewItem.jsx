@@ -11,7 +11,7 @@ export default function NewItem() {
     }
 
     return (
-      <div>
+      <div id='addBox'>
         <label>
           Add to list
           <input type="text" id="newChoreInput" />
@@ -21,6 +21,11 @@ export default function NewItem() {
           type="button"
         >
           Clear List
+        </button>
+        <button
+          type="submit"
+        >
+          Add Chore
         </button>
       </div>
     )

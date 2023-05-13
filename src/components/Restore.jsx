@@ -36,9 +36,10 @@ export default function Restore() {
 
     return (
         <div style={(deleted.length > 1) ? {opacity: "1"} : {opacity: "0.3"}} className="restoreBox">
-          <label>
-            Restore
+          <label htmlFor="restoreChoreInput">
+            Restore</label>
             <select
+              id="restoreChoreInput"
               onInput={(e) => {handleRestore(e)}}
               disabled={(deleted.length > 1) ? false : true}>
               {deleted.map((itemContent, idx) => (
@@ -47,7 +48,7 @@ export default function Restore() {
                 </option>
               ))}
             </select>
-          </label>
+          
           <button
             onClick={() => {setDeleted([" "])}}
             type="button"
