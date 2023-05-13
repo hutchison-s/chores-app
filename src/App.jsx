@@ -32,13 +32,12 @@ export default function App() {
 
 const data = JSON.parse(window.localStorage.getItem("choresData"));
 
-const initialList = (data.list)
-  ? [...data.list]
-  : [
+const initialList = [...data.list]
+  || [
     {id: 2000, priority: false, complete: false, content: "Use form to add"},
     {id: 2001, priority: false, complete: false, content: "Double click to delete"},
     {id: 2002, priority: false, complete: false, content: "Use form to restore or clear history"}
   ];
 
-const initialDeleted = (data.deleted) ? [...data.deleted] : [" "];
+const initialDeleted = [...data.deleted] || [" "];
 let nextId = data.list.length > 0 ? Math.max(...data.list.map(each => Number(each.id))) + 1 : 0;
